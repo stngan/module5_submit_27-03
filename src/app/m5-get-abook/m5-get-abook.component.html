@@ -1,0 +1,47 @@
+
+<div style="margin-left: 50px; width: 100%;">
+  <h3>Triệu gọi HTTP GET - a Book</h3>
+
+  <div style="background-color: rgb(209, 209, 255); border-radius: 5px; padding: 10px; margin: 5px">
+
+    <p>{{errMessage}}</p>
+    <h5>Search by Book ID: </h5>
+
+    <input type="text" #bookID> <button (click)="searchBook(bookID.value)">Search</button>
+
+    <div style="display: flex;">
+      <img src="assets/book_images/{{book.image}}" height="150px" >
+
+      <div>
+        <div>Book ID: {{book.bookID}}</div>
+        <div>Book Name: {{book.bookName}}</div>
+        <div>Book Price: {{book.price}}</div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div style="background-color: rgb(211, 255, 209); border-radius: 5px; padding: 10px; margin: 5px">
+    <h5> Sort by price:</h5>
+
+    Min: <input type="text" [(ngModel)]="minprice">
+    Max: <input type="text" [(ngModel)]="maxprice">
+
+    <button (click)="filterBook(minprice, maxprice)">Sort</button>
+
+    <div *ngFor="let p of book" style="display: flex; flex-direction: row;">
+
+      <div style="width: 100px; background-color: rgb(209, 235, 235); border-radius: 10px;">
+        <img src="assets/book_images/{{p.image}}" height="150px" >
+
+        <div>Book ID: {{p.bookID}}</div>
+        <div>Book Name: {{p.bookName}}</div>
+        <div>Book Price: {{p.price}}</div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>

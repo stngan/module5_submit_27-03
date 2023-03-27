@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "module3": {
+    "module5": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/module3",
+            "outputPath": "dist/module5",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -57,13 +57,18 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          "options": {
+            "browserTarget": "module5:build",
+            "proxyConfig": "src/proxy.conf.json"
+          },
+
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "module3:build:production"
+              "browserTarget": "module5:build:production"
             },
             "development": {
-              "browserTarget": "module3:build:development"
+              "browserTarget": "module5:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +76,8 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "module3:build"
+            "browserTarget": "module5:build"
+
           }
         },
         "test": {
@@ -94,5 +100,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
